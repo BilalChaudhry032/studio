@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --ink: #08090a;
+  --paper: #f4f0e8;
+  --muted: #a5a097;
+  --accent: #d8ff47;
+  --line: rgba(244, 240, 232, 0.13);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 76% 4%, rgba(216, 255, 71, 0.09), transparent 25rem),
+    linear-gradient(rgba(244, 240, 232, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 240, 232, 0.035) 1px, transparent 1px),
+    var(--ink);
+  background-size: auto, 5rem 5rem, 5rem 5rem, auto;
+  color: var(--paper);
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(120deg, transparent 35%, rgba(255, 255, 255, 0.025), transparent 65%);
+  content: "";
+  pointer-events: none;
+}
+
+::selection {
+  background: #d8ff47;
+  color: #070708;
+}
+
+.canvas-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.canvas-layer.is-static {
+  opacity: 1;
+}
+
+.eyebrow {
+  align-items: center;
+  display: flex;
+  gap: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  background: var(--accent);
+  content: "";
+  height: 0.45rem;
+  width: 0.45rem;
+}
